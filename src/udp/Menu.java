@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tcp;
+package udp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  */
 public class Menu {
     
-    private TCPScanner scanner;
+    private UDPScanner scanner;
     
     BufferedReader tastiera;
     
@@ -23,12 +23,12 @@ public class Menu {
         System.out.println("Digita l'indirizzo di cui effettuare lo scanning:");
         tastiera = new BufferedReader(new InputStreamReader(System.in));
         String address = tastiera.readLine();
-        scanner = new TCPScanner(address);
+        scanner = new UDPScanner(address);
         boolean stop = false;
         int opt;
         do {
             opt=0;
-            System.out.println("Port Scanning TCP:\n1.Controlla una singola porta\n2.Controlla un range di porte\n3.Controlla alcuni servizi noti\n4.Scappa - Get Out");
+            System.out.println("Port Scanning UDP:\n1.Controlla una singola porta\n2.Controlla un range di porte\n3.Controlla alcuni servizi noti\n4.Scappa - Get Out");
             try{
                 opt = Integer.parseInt(tastiera.readLine());
             } catch (NumberFormatException ex) {
@@ -46,6 +46,7 @@ public class Menu {
                     break;
                 case 4:
                     stop=true;
+                    scanner.close();
                     System.out.println("Ciao Phrego");
                     break;
             }
@@ -96,7 +97,7 @@ public class Menu {
     
     public void checkWellKnown(){
         int port=0;
-        System.out.println("Servizi noti:\n1. FTP\n2. SSH\n3. SMTP\n4. HTTP\n5. Kerberos\n6. POP3\n7. IMAP\n8. LDAP\n9. HTTPS\n10. Doom\nAltro. Esci");
+        System.out.println("Servizi noti:\n1. DNS\n2. LDAP\n3. Teamspeak\nAltro. Esci");
         try{
             port = Integer.parseInt(tastiera.readLine());
         } catch (NumberFormatException ex) {
@@ -106,34 +107,13 @@ public class Menu {
         }
         switch(port){
             case 1:
-                System.out.println(scanner.scan(20));
+                System.out.println(scanner.scan(53));
                 break;
             case 2:
-                System.out.println(scanner.scan(22));
-                break;
-            case 3:
-                System.out.println(scanner.scan(25));
-                break;
-            case 4:
-                System.out.println(scanner.scan(80));
-                break;
-            case 5:
-                System.out.println(scanner.scan(88));
-                break;
-            case 6:
-                System.out.println(scanner.scan(110));
-                break;
-            case 7:
-                System.out.println(scanner.scan(143));
-                break;
-            case 8:
                 System.out.println(scanner.scan(389));
                 break;
-            case 9:
-                System.out.println(scanner.scan(443));
-                break;
-            case 10:
-                System.out.println(scanner.scan(666));
+            case 3:
+                System.out.println(scanner.scan(9987));
                 break;
         }
     }

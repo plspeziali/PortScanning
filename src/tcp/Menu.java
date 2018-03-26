@@ -8,6 +8,9 @@ package tcp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -17,9 +20,12 @@ public class Menu {
     
     private TCPScanner scanner;
     
-    BufferedReader tastiera;
+    private BufferedReader tastiera;
+    
+    private FileHandler fh;
     
     public void avvia() throws IOException{
+        fh = new FileHandler();
         System.out.println("Digita l'indirizzo di cui effettuare lo scanning:");
         tastiera = new BufferedReader(new InputStreamReader(System.in));
         String address = tastiera.readLine();
@@ -46,6 +52,7 @@ public class Menu {
                     break;
                 case 4:
                     stop=true;
+                    fh.chiudi();
                     System.out.println("Ciao Phrego");
                     break;
             }
@@ -56,7 +63,10 @@ public class Menu {
         System.out.println("Inserisci la porta da controllare:");
         try {
             int port = Integer.parseInt(tastiera.readLine());
-            System.out.println(scanner.scan(port));
+            String msg = scanner.scan(port);
+            fh.scrivi("--|"+getTime()+"|--\n");
+            fh.scrivi(msg+"\n");
+            System.out.println(msg);
         } catch (NumberFormatException ex) {
             System.err.println("Inserisci un numero!");
         } catch (IOException ex) {
@@ -89,8 +99,11 @@ public class Menu {
             portB=portA-portB;
             portA=portA-portB;
         }
+        fh.scrivi("--|"+getTime()+"|--\n");
         for(int i=portA;i<=portB;i++){
-            System.out.println(scanner.scan(i));
+            String msg = scanner.scan(i);
+            fh.scrivi(msg+"\n");
+            System.out.println(msg);
         }
     }
     
@@ -104,37 +117,50 @@ public class Menu {
         } catch (IOException ex) {
             System.err.println("Errore di I/O");
         }
+        int opt=0;
         switch(port){
             case 1:
-                System.out.println(scanner.scan(20));
+                opt=20;
                 break;
             case 2:
-                System.out.println(scanner.scan(22));
+                opt=22;
                 break;
             case 3:
-                System.out.println(scanner.scan(25));
+                opt=25;
                 break;
             case 4:
-                System.out.println(scanner.scan(80));
+                opt=80;
                 break;
             case 5:
-                System.out.println(scanner.scan(88));
+                opt=88;
                 break;
             case 6:
-                System.out.println(scanner.scan(110));
+                opt=110;
                 break;
             case 7:
-                System.out.println(scanner.scan(143));
+                opt=143;
                 break;
             case 8:
-                System.out.println(scanner.scan(389));
+                opt=389;
                 break;
             case 9:
-                System.out.println(scanner.scan(443));
+                opt=443;
                 break;
             case 10:
-                System.out.println(scanner.scan(666));
+                opt=666;
                 break;
         }
+        if(port!=0 && port<11){
+            String msg = scanner.scan(opt);
+            fh.scrivi("--|"+getTime()+"|--\n");
+            fh.scrivi(msg+"\n");
+            System.out.println(msg);
+        }
+    }
+    
+    public static String getTime(){
+        DateFormat dateFormat = new SimpleDateFormat(" HH:mm:ss - dd/MM/yyyy");
+        Date date = new Date();
+        return (dateFormat.format(date));
     }
 }

@@ -1,0 +1,36 @@
+--| 13:36:30 - 26/03/2018|--
+La porta 30 dell'host localhost è chiusa
+La porta 31 dell'host localhost è chiusa
+La porta 32 dell'host localhost è chiusa
+La porta 33 dell'host localhost è chiusa
+La porta 34 dell'host localhost è chiusa
+La porta 35 dell'host localhost è chiusa
+La porta 36 dell'host localhost è chiusa
+La porta 37 dell'host localhost è chiusa
+La porta 38 dell'host localhost è chiusa
+La porta 39 dell'host localhost è chiusa
+La porta 40 dell'host localhost è chiusa
+La porta 41 dell'host localhost è chiusa
+La porta 42 dell'host localhost è chiusa
+La porta 43 dell'host localhost è chiusa
+La porta 44 dell'host localhost è chiusa
+La porta 45 dell'host localhost è chiusa
+La porta 46 dell'host localhost è chiusa
+La porta 47 dell'host localhost è chiusa
+La porta 48 dell'host localhost è chiusa
+La porta 49 dell'host localhost è chiusa
+La porta 50 dell'host localhost è chiusa
+La porta 51 dell'host localhost è chiusa
+La porta 52 dell'host localhost è chiusa
+La porta 53 dell'host localhost è chiusa
+La porta 54 dell'host localhost è chiusa
+La porta 55 dell'host localhost è chiusa
+La porta 56 dell'host localhost è chiusa
+La porta 57 dell'host localhost è chiusa
+La porta 58 dell'host localhost è chiusa
+La porta 59 dell'host localhost è chiusa
+La porta 60 dell'host localhost è chiusa
+--| 13:36:33 - 26/03/2018|--
+La porta 44 dell'host localhost è chiusa
+--| 13:36:36 - 26/03/2018|--
+La porta 666 dell'host localhost è chiusa

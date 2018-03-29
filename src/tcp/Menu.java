@@ -34,7 +34,7 @@ public class Menu {
         int opt;
         do {
             opt=0;
-            System.out.println("Port Scanning TCP:\n1.Controlla una singola porta\n2.Controlla un range di porte\n3.Controlla alcuni servizi noti\n4.Scappa - Get Out");
+            System.out.println("Port Scanning TCP:\n1.Controlla una singola porta\n2.Controlla un range di porte\n3.Controlla alcuni servizi noti\n4.Esci");
             try{
                 opt = Integer.parseInt(tastiera.readLine());
             } catch (NumberFormatException ex) {
@@ -53,7 +53,7 @@ public class Menu {
                 case 4:
                     stop=true;
                     fh.chiudi();
-                    System.out.println("Ciao Phrego");
+                    System.out.println("Arrivederci");
                     break;
             }
         } while (stop == false);
